@@ -60,27 +60,16 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          {/* NAME INTRO */}
-          <motion.p
-            className="mb-4 tracking-widest text-[#00ffc8]/80"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            style={{ fontSize: "clamp(1.1rem, 2.8vw, 1.4rem)" }}
-          >
-            Hi, I’m <span className="text-white font-semibold">Laxit Jangid</span>
-          </motion.p>
-
-          {/* MAIN HEADING */}
+          {/* MAIN HEADING (SEO + UI balanced) */}
           <motion.h1
             className="mb-6 tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
             style={{
-              fontSize: "clamp(3rem, 10vw, 8rem)",
+              fontSize: "clamp(2.4rem, 8vw, 6.2rem)",
               fontWeight: 700,
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               background:
                 "linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #00d4ff 100%)",
               WebkitBackgroundClip: "text",
@@ -88,7 +77,7 @@ export function Hero() {
               backgroundClip: "text",
             }}
           >
-            Crafting Experiences
+            Laxit Jangid – React Developer
             <br />
             <span
               style={{
@@ -99,7 +88,7 @@ export function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Beyond Boundaries
+              Crafting Experiences Beyond Boundaries
             </span>
           </motion.h1>
 
