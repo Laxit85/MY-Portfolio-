@@ -22,7 +22,7 @@ const projects = [
       "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1080&q=80",
     description:
       "A full-stack news platform with real-time updates, secure authentication, RESTful APIs, and a responsive user interface.",
-    link: "https://your-live-site.com/news-portal", // # PROJECT LINK
+    link: "https://news-hub-port.netlify.app/", // # PROJECT LINK
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const projects = [
       "https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?auto=format&fit=crop&w=1080&q=80",
     description:
       "A machine learning system that predicts temperature trends using historical data for accurate and data-driven forecasting.",
-    link: "https://github.com/your-username/temperature-prediction", // # PROJECT LINK
+    link: "https://temperature-predictor.netlify.app/", // # PROJECT LINK
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const projects = [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1080&q=80",
     description:
       "An AI-powered assistant that analyzes code quality, detects potential issues, and suggests improvements for better performance and readability.",
-    link: "https://github.com/your-username/ai-code-review", // # PROJECT LINK
+    link: "https://code-review-ass.netlify.app/", // # PROJECT LINK
   },
   {
     id: 6,
