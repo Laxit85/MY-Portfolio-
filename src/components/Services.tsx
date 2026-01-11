@@ -10,48 +10,95 @@ import {
   Lightbulb,
 } from "lucide-react";
 
+/* ================= SERVICES DATA ================= */
+
 const services = [
   {
     icon: Code,
     title: "Web Development",
     description:
       "Building responsive and user-friendly web applications with modern technologies and smooth user interactions.",
-    features: ["HTML & CSS", "React.js", "Responsive Design"],
   },
   {
     icon: Layers,
     title: "Full-Stack Development",
     description:
       "Creating complete end-to-end solutions with secure APIs, databases, and seamless client-server communication.",
-    features: ["Node.js", "Express.js", "MySQL"],
   },
   {
     icon: Brain,
-    title: "AI & Machine Learning Solutions",
+    title: "AI & Machine Learning",
     description:
       "Developing intelligent systems that analyze data and deliver accurate, real-time predictions.",
-    features: ["Python", "Decision Tree", "Random Forest"],
   },
   {
     icon: Cloud,
-    title: "Cloud Deployment (AWS)",
+    title: "Cloud Deployment",
     description:
-      "Deploying scalable and secure applications on cloud infrastructure for reliable real-world performance.",
-    features: ["EC2", "S3", "Lambda"],
+      "Deploying scalable and secure applications on cloud infrastructure for real-world performance.",
   },
   {
     icon: Zap,
-    title: "Automation & API Integration",
+    title: "Automation & APIs",
     description:
-      "Streamlining workflows by integrating APIs and automation to reduce manual effort and improve efficiency.",
-    features: ["REST APIs", "Workflow Automation", "Reporting"],
+      "Streamlining workflows with APIs and automation to improve efficiency.",
   },
   {
     icon: Lightbulb,
     title: "Technical Consulting",
     description:
-      "Providing practical guidance on technology selection, application architecture, and scalability planning.",
-    features: ["System Design", "Tech Stack Guidance", "Scalability"],
+      "Guidance on system design, tech stack selection, and scalability.",
+  },
+];
+
+/* ================= PROCESS STEPS ================= */
+
+const processSteps = [
+  {
+    title: "Discover",
+    desc: "Understand functional and technical requirements, create a prototype and project plan.",
+    icon: "💡",
+    bg: "#e67e22",
+    color: "#e67e22",
+    left: 0,
+    top: 40,
+  },
+  {
+    title: "Design",
+    desc: "Finalize the tech stack and system architecture.",
+    icon: "📐",
+    bg: "#6ab04c",
+    color: "#6ab04c",
+    left: 240,
+    top: 260,
+  },
+  {
+    title: "Development",
+    desc: "Agile development with QA, testing and feedback.",
+    icon: "💻",
+    bg: "#f6c453",
+    color: "#f6c453",
+    left: 480,
+    top: 40,
+    textColor: "#000",
+  },
+  {
+    title: "Deployment",
+    desc: "Deployment on QA/UAT with CI/CD practices.",
+    icon: "🚀",
+    bg: "#4b6cb7",
+    color: "#4b6cb7",
+    left: 720,
+    top: 260,
+  },
+  {
+    title: "Delivery",
+    desc: "Final delivery, documentation and support handover.",
+    icon: "📦",
+    bg: "#e67e22",
+    color: "#e67e22",
+    left: 960,
+    top: 40,
   },
 ];
 
@@ -60,173 +107,174 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-b from-[#050508] to-[#0a0a0f]">
-      {/* Background gradient */}
+    <section
+      id="services"
+      className="relative py-32 bg-gradient-to-b from-[#050508] to-[#0a0a0f]"
+    >
+      {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00ffc8]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
-        {/* Section Header */}
+        {/* ================= HEADER (FIXED & CLEAN) ================= */}
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center"
+          style={{ marginBottom: "180px" }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-[#00ffc8] mb-4 tracking-widest">WHAT I DO</p>
-          <h2
-            className="mb-6"
+          <p
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4rem)",
+              color: "#00ffc8",
+              letterSpacing: "0.25em",
+              marginBottom: "24px",
+            }}
+          >
+            WHAT I DO
+          </p>
+
+          <h2
+            style={{
+              fontSize: "clamp(3rem, 7vw, 4.5rem)",
               fontWeight: 700,
-              background: "linear-gradient(135deg, #ffffff 0%, #00d4ff 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "#9ff3ff",
+              marginBottom: "28px",
             }}
           >
             My Services
           </h2>
-          <p className="text-white/70 max-w-3xl mx-auto" style={{ fontSize: "clamp(1rem, 2vw, 1.125rem)" }}>
+
+          <p
+            style={{
+              color: "rgba(255,255,255,0.7)",
+              maxWidth: "720px",
+              margin: "0 auto",
+              fontSize: "1.05rem",
+              lineHeight: 1.8,
+            }}
+          >
             Comprehensive solutions tailored to transform your vision into
             extraordinary experiences that inspire and engage.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* ================= SERVICES GRID ================= */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-48">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group glass p-8 rounded-3xl hover:glow-blue transition-all cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
+              className="glass p-8 rounded-3xl"
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Icon */}
-              <motion.div
-                className="relative mb-6"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                  {/* Animated background */}
-                  <motion.div
-                    className="absolute inset-0 opacity-20"
-                    style={{
-                      background: "linear-gradient(135deg, #00d4ff 0%, #00ffc8 100%)",
-                    }}
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 90, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  <service.icon
-                    size={32}
-                    className="relative z-10 text-[#00d4ff] group-hover:text-[#00ffc8] transition-colors"
-                  />
-                </div>
-
-                {/* Glow ring */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-[#00d4ff]/30"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0, 0.3],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </motion.div>
-
-              {/* Content */}
-              <h3 className="mb-4" style={{ fontSize: "clamp(1.25rem, 3vw, 1.5rem)" }}>
+              <service.icon size={32} className="text-[#00d4ff] mb-4" />
+              <h3 className="text-xl font-semibold mb-2">
                 {service.title}
               </h3>
-
-              <p className="text-white/70 mb-6">{service.description}</p>
-
-              {/* Features */}
-              <div className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <motion.div
-                    key={i}
-                    className="flex items-center gap-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: index * 0.1 + i * 0.1 }}
-                  >
-                    <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#00ffc8]" />
-                    <span className="text-sm text-white/60">{feature}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Hover line */}
-              <motion.div
-                className="mt-6 h-1 bg-gradient-to-r from-[#00d4ff] to-[#00ffc8] rounded-full"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
+              <p className="text-white/70 text-sm">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <motion.div
-          className="mt-24 text-center glass-dark p-12 rounded-3xl max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
+        {/* ================= WORKING PROCESS ================= */}
+        <div style={{ paddingBottom: "80px" }}>
           <h3
-            className="mb-4"
             style={{
-              fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+              textAlign: "center",
+              fontSize: 34,
               fontWeight: 700,
+              marginBottom: 120,
+              color: "#ffffff",
             }}
           >
-            Ready to Start Your Journey?
+            Our Working Process
           </h3>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            Let's collaborate to create something extraordinary that captures
-            the essence of your brand and resonates with your audience.
-          </p>
 
-          <motion.button
-            className="group px-8 py-4 rounded-full"
+          <div
             style={{
-              background: "linear-gradient(135deg, #00d4ff 0%, #00ffc8 100%)",
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              position: "relative",
+              width: 1200,
+              margin: "0 auto",
+              height: 420,
             }}
           >
-            <span className="text-[#0a0a0f] flex items-center gap-2">
-              Let's Talk
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+            {/* CURVE */}
+            <svg
+              viewBox="0 0 1200 420"
+              preserveAspectRatio="none"
+              style={{
+                position: "absolute",
+                inset: 0,
+                zIndex: 1,
+                pointerEvents: "none",
+              }}
+            >
+              <path
+                d="
+                  M 0   210
+                  Q 120 320, 240 210
+                  Q 360 100, 480 210
+                  Q 600 320, 720 210
+                  Q 840 100, 960 210
+                  Q 1080 320, 1200 210
+                "
+                fill="none"
+                stroke="#9aa0a6"
+                strokeWidth="4"
+              />
+            </svg>
+
+            {/* STEPS */}
+            {processSteps.map((s, i) => (
+              <div
+                key={i}
+                style={{
+                  position: "absolute",
+                  left: s.left,
+                  top: s.top,
+                  width: 220,
+                  textAlign: "center",
+                  zIndex: 2,
+                }}
               >
-                →
-              </motion.span>
-            </span>
-          </motion.button>
-        </motion.div>
+                <h4 style={{ color: s.color, fontSize: 20, marginBottom: 10 }}>
+                  {s.title}
+                </h4>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: "#cbd5e1",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {s.desc}
+                </p>
+                <div
+                  style={{
+                    width: 90,
+                    height: 90,
+                    borderRadius: "50%",
+                    background: s.bg,
+                    margin: "18px auto 0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 32,
+                    color: s.textColor || "#fff",
+                  }}
+                >
+                  {s.icon}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
