@@ -1,5 +1,4 @@
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import {
   Code,
@@ -18,36 +17,42 @@ const services = [
     title: "Web Development",
     description:
       "Building responsive and user-friendly web applications with modern technologies and smooth user interactions.",
+    features: ["HTML & CSS", "React.js", "Responsive Design"],
   },
   {
     icon: Layers,
     title: "Full-Stack Development",
     description:
       "Creating complete end-to-end solutions with secure APIs, databases, and seamless client-server communication.",
+    features: ["Node.js", "Express.js", "MySQL"],
   },
   {
     icon: Brain,
-    title: "AI & Machine Learning",
+    title: "AI & Machine Learning Solutions",
     description:
       "Developing intelligent systems that analyze data and deliver accurate, real-time predictions.",
+    features: ["Python", "Decision Tree", "Random Forest"],
   },
   {
     icon: Cloud,
-    title: "Cloud Deployment",
+    title: "Cloud Deployment (AWS)",
     description:
-      "Deploying scalable and secure applications on cloud infrastructure for real-world performance.",
+      "Deploying scalable and secure applications on cloud infrastructure for reliable real-world performance.",
+    features: ["EC2", "S3", "Lambda"],
   },
   {
     icon: Zap,
-    title: "Automation & APIs",
+    title: "Automation & API Integration",
     description:
-      "Streamlining workflows with APIs and automation to improve efficiency.",
+      "Streamlining workflows by integrating APIs and automation to reduce manual effort and improve efficiency.",
+    features: ["REST APIs", "Workflow Automation", "Reporting"],
   },
   {
     icon: Lightbulb,
     title: "Technical Consulting",
     description:
-      "Guidance on system design, tech stack selection, and scalability.",
+      "Providing practical guidance on technology selection, application architecture, and scalability planning.",
+    features: ["System Design", "Tech Stack Guidance", "Scalability"],
   },
 ];
 
@@ -58,8 +63,8 @@ const processSteps = [
     title: "Discover",
     desc: "Understand functional and technical requirements, create a prototype and project plan.",
     icon: "💡",
-    bg: "#e67e22",
-    color: "#e67e22",
+    color: "#f39c12",
+    bg: "#f39c12",
     left: 0,
     top: 40,
   },
@@ -67,8 +72,8 @@ const processSteps = [
     title: "Design",
     desc: "Finalize the tech stack and system architecture.",
     icon: "📐",
-    bg: "#6ab04c",
     color: "#6ab04c",
+    bg: "#6ab04c",
     left: 240,
     top: 260,
   },
@@ -76,8 +81,8 @@ const processSteps = [
     title: "Development",
     desc: "Agile development with QA, testing and feedback.",
     icon: "💻",
-    bg: "#f6c453",
     color: "#f6c453",
+    bg: "#f6c453",
     left: 480,
     top: 40,
     textColor: "#000",
@@ -86,8 +91,8 @@ const processSteps = [
     title: "Deployment",
     desc: "Deployment on QA/UAT with CI/CD practices.",
     icon: "🚀",
-    bg: "#4b6cb7",
     color: "#4b6cb7",
+    bg: "#4b6cb7",
     left: 720,
     top: 260,
   },
@@ -95,8 +100,8 @@ const processSteps = [
     title: "Delivery",
     desc: "Final delivery, documentation and support handover.",
     icon: "📦",
-    bg: "#e67e22",
-    color: "#e67e22",
+    color: "#f39c12",
+    bg: "#f39c12",
     left: 960,
     top: 40,
   },
@@ -104,7 +109,7 @@ const processSteps = [
 
 export function Services() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-120px" });
 
   return (
     <section
@@ -118,79 +123,94 @@ export function Services() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
-        {/* ================= HEADER (FIXED & CLEAN) ================= */}
+        {/* ================= HEADER ================= */}
         <motion.div
-          className="text-center"
-          style={{ marginBottom: "180px" }}
-          initial={{ opacity: 0, y: 40 }}
+          className="text-center mb-28"
+          initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <p
-            style={{
-              color: "#00ffc8",
-              letterSpacing: "0.25em",
-              marginBottom: "24px",
-            }}
-          >
+          <p className="text-[#00ffc8] tracking-[0.3em] mb-4">
             WHAT I DO
           </p>
 
           <h2
+            className="mb-6 font-bold"
             style={{
               fontSize: "clamp(3rem, 7vw, 4.5rem)",
-              fontWeight: 700,
-              color: "#9ff3ff",
-              marginBottom: "28px",
+              background:
+                "linear-gradient(135deg, #ffffff 0%, #00d4ff 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             My Services
           </h2>
 
-          <p
-            style={{
-              color: "rgba(255,255,255,0.7)",
-              maxWidth: "720px",
-              margin: "0 auto",
-              fontSize: "1.05rem",
-              lineHeight: 1.8,
-            }}
-          >
-            Comprehensive solutions tailored to transform your vision into
-            extraordinary experiences that inspire and engage.
+          <p className="text-white/70 max-w-3xl mx-auto text-lg leading-relaxed">
+           
           </p>
         </motion.div>
 
         {/* ================= SERVICES GRID ================= */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-48">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-56">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="glass p-8 rounded-3xl"
-              initial={{ opacity: 0, y: 40 }}
+              className="group glass p-8 rounded-3xl hover:glow-blue transition-all cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
             >
-              <service.icon size={32} className="text-[#00d4ff] mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
+              <motion.div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+              >
+                <motion.div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #00d4ff 0%, #00ffc8 100%)",
+                  }}
+                  animate={{ rotate: [0, 180, 360] }}
+                  transition={{ duration: 6, repeat: Infinity }}
+                />
+                <service.icon
+                  size={32}
+                  className="relative z-10 text-[#00d4ff]"
+                />
+              </motion.div>
+
+              <h3 className="mb-4 text-xl font-semibold">
                 {service.title}
               </h3>
-              <p className="text-white/70 text-sm">
+
+              <p className="text-white/70 mb-6">
                 {service.description}
               </p>
+
+              <div className="space-y-2">
+                {service.features.map((f, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#00ffc8]" />
+                    <span className="text-sm text-white/60">
+                      {f}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
 
         {/* ================= WORKING PROCESS ================= */}
-        <div style={{ paddingBottom: "80px" }}>
+        <div className="pb-32">
           <h3
+            className="text-center font-bold text-white"
             style={{
-              textAlign: "center",
-              fontSize: 34,
-              fontWeight: 700,
-              marginBottom: 120,
-              color: "#ffffff",
+              fontSize: "clamp(2.4rem, 4vw, 3.2rem)",
+              marginBottom: "80px",
             }}
           >
             Our Working Process
@@ -202,6 +222,7 @@ export function Services() {
               width: 1200,
               margin: "0 auto",
               height: 420,
+              marginTop: "-20px",
             }}
           >
             {/* CURVE */}
@@ -243,18 +264,20 @@ export function Services() {
                   zIndex: 2,
                 }}
               >
-                <h4 style={{ color: s.color, fontSize: 20, marginBottom: 10 }}>
-                  {s.title}
-                </h4>
-                <p
+                <h4
                   style={{
-                    fontSize: 14,
-                    color: "#cbd5e1",
-                    lineHeight: 1.6,
+                    color: s.color,
+                    fontSize: 20,
+                    marginBottom: 10,
                   }}
                 >
+                  {s.title}
+                </h4>
+
+                <p className="text-sm text-white/70 leading-relaxed">
                   {s.desc}
                 </p>
+
                 <div
                   style={{
                     width: 90,
