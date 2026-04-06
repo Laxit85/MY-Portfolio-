@@ -52,7 +52,7 @@ const projects = [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1080&q=80",
     description:
       "An AI-powered assistant that analyzes code quality, detects potential issues, and suggests improvements for better performance and readability.",
-    link: "https://code-review-ass.netlify.app/", // # PROJECT LINK
+    link: "https://ai-code-review-with-llm.vercel.app/", // # PROJECT LINK
   },
   {
     id: 6,
