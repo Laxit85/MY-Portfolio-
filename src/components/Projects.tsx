@@ -4,28 +4,19 @@ import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const projects = [
-  {
+
+   {
     id: 1,
-    title: "AI Doctor",
-    category: "Frontend (AI UI)",
+    title: "AI-Based Code Review Assistant",
+    category: "AI Tools",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1080&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1080&q=80",
     description:
-      "A frontend-focused healthcare interface that allows users to input symptoms and view AI-generated health insights through a clean, responsive, and user-friendly design.",
-    link: "https://aidoctor-ca07f-517ab.web.app", // # PROJECT LINK
+      "An AI-powered assistant that analyzes code quality, detects potential issues, and suggests improvements for better performance and readability using LLM.",
+    link: "https://ai-code-review-with-llm.vercel.app/", // # PROJECT LINK
   },
   {
     id: 2,
-    title: "Dynamic News Portal",
-    category: "Full-Stack Web",
-    image:
-      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1080&q=80",
-    description:
-      "A full-stack news platform with real-time updates, secure authentication, RESTful APIs, and a responsive user interface.",
-    link: "https://news-hub-port.netlify.app/", // # PROJECT LINK
-  },
-  {
-    id: 3,
     title: "Disease Prediction System",
     category: "Machine Learning",
     image:
@@ -35,7 +26,28 @@ const projects = [
     link: "https://github.com/your-username/disease-prediction", // # PROJECT LINK
   },
   {
+    id: 3,
+    title: "Book Summarizer",
+    category: "Python",
+    image:
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "A Python-based application that automatically summarizes books and long texts into concise and meaningful insights.",
+    link: "https://github.com/your-username/book-summarizer", // # PROJECT LINK
+  },
+  {
     id: 4,
+    title: "Dynamic News Portal",
+    category: "Full-Stack Web",
+    image:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1080&q=80",
+    description:
+      "A full-stack news platform with real-time updates, secure authentication, RESTful APIs, and a responsive user interface.",
+    link: "https://news-hub-port.netlify.app/", // # PROJECT LINK
+  },
+
+  {
+    id: 5,
     title: "Temperature Prediction System",
     category: "Machine Learning",
     image:
@@ -44,25 +56,16 @@ const projects = [
       "A machine learning system that predicts temperature trends using historical data for accurate and data-driven forecasting.",
     link: "https://temperature-predictor.netlify.app/", // # PROJECT LINK
   },
-  {
-    id: 5,
-    title: "AI-Based Code Review Assistant",
-    category: "AI Tools",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1080&q=80",
-    description:
-      "An AI-powered assistant that analyzes code quality, detects potential issues, and suggests improvements for better performance and readability.",
-    link: "https://ai-code-review-with-llm.vercel.app/", // # PROJECT LINK
-  },
-  {
+ 
+   {
     id: 6,
-    title: "Book Summarizer",
-    category: "Python",
+    title: "AI Doctor",
+    category: "Frontend (AI UI)",
     image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1080&q=80",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1080&q=80",
     description:
-      "A Python-based application that automatically summarizes books and long texts into concise and meaningful insights.",
-    link: "https://github.com/your-username/book-summarizer", // # PROJECT LINK
+      "A frontend-focused healthcare interface that allows users to input symptoms and view AI-generated health insights through a clean, responsive, and user-friendly design.",
+    link: "https://aidoctor-ca07f-517ab.web.app", // # PROJECT LINK
   },
 ];
 
