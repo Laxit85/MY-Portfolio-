@@ -7,6 +7,10 @@ import {
   Cloud,
   Zap,
   Lightbulb,
+  Compass,
+  Terminal,
+  Rocket,
+  CheckCircle2,
 } from "lucide-react";
 
 /* ================= SERVICES DATA ================= */
@@ -62,46 +66,45 @@ const processSteps = [
   {
     title: "Discover",
     desc: "Understand functional and technical requirements, create a prototype and project plan.",
-    icon: "💡",
-    color: "#f39c12",
-    bg: "#f39c12",
+    icon: Lightbulb,
+    color: "#00d4ff",
+    bg: "rgba(0, 212, 255, 0.1)",
     left: 0,
     top: 40,
   },
   {
     title: "Design",
     desc: "Finalize the tech stack and system architecture.",
-    icon: "📐",
-    color: "#6ab04c",
-    bg: "#6ab04c",
+    icon: Compass,
+    color: "#00ffc8",
+    bg: "rgba(0, 255, 200, 0.1)",
     left: 240,
     top: 260,
   },
   {
     title: "Development",
     desc: "Agile development with QA, testing and feedback.",
-    icon: "💻",
-    color: "#f6c453",
-    bg: "#f6c453",
+    icon: Terminal,
+    color: "#ffa726",
+    bg: "rgba(255, 167, 38, 0.1)",
     left: 480,
     top: 40,
-    textColor: "#000",
   },
   {
     title: "Deployment",
     desc: "Deployment on QA/UAT with CI/CD practices.",
-    icon: "🚀",
-    color: "#4b6cb7",
-    bg: "#4b6cb7",
+    icon: Rocket,
+    color: "#00d4ff",
+    bg: "rgba(0, 212, 255, 0.1)",
     left: 720,
     top: 260,
   },
   {
     title: "Delivery",
     desc: "Final delivery, documentation and support handover.",
-    icon: "📦",
-    color: "#f39c12",
-    bg: "#f39c12",
+    icon: CheckCircle2,
+    color: "#00ffc8",
+    bg: "rgba(0, 255, 200, 0.1)",
     left: 960,
     top: 40,
   },
@@ -216,85 +219,163 @@ export function Services() {
             Our Working Process
           </h3>
 
-          <div
-            style={{
-              position: "relative",
-              width: 1200,
-              margin: "0 auto",
-              height: 420,
-              marginTop: "-20px",
-            }}
-          >
-            {/* CURVE */}
-            <svg
-              viewBox="0 0 1200 420"
-              preserveAspectRatio="none"
+          {/* DESKTOP TIMELINE (xl and above) */}
+          <div className="hidden xl:block">
+            <div
               style={{
-                position: "absolute",
-                inset: 0,
-                zIndex: 1,
-                pointerEvents: "none",
+                position: "relative",
+                width: 1200,
+                margin: "0 auto",
+                height: 420,
+                marginTop: "-20px",
               }}
             >
-              <path
-                d="
-                  M 0   210
-                  Q 120 320, 240 210
-                  Q 360 100, 480 210
-                  Q 600 320, 720 210
-                  Q 840 100, 960 210
-                  Q 1080 320, 1200 210
-                "
-                fill="none"
-                stroke="#9aa0a6"
-                strokeWidth="4"
-              />
-            </svg>
-
-            {/* STEPS */}
-            {processSteps.map((s, i) => (
-              <div
-                key={i}
+              {/* CURVE */}
+              <svg
+                viewBox="0 0 1200 420"
+                preserveAspectRatio="none"
                 style={{
                   position: "absolute",
-                  left: s.left,
-                  top: s.top,
-                  width: 220,
-                  textAlign: "center",
-                  zIndex: 2,
+                  inset: 0,
+                  zIndex: 1,
+                  pointerEvents: "none",
                 }}
               >
-                <h4
-                  style={{
-                    color: s.color,
-                    fontSize: 20,
-                    marginBottom: 10,
-                  }}
-                >
-                  {s.title}
-                </h4>
+                <path
+                  d="
+                    M 0   210
+                    Q 120 320, 240 210
+                    Q 360 100, 480 210
+                    Q 600 320, 720 210
+                    Q 840 100, 960 210
+                    Q 1080 320, 1200 210
+                  "
+                  fill="none"
+                  stroke="#9aa0a6"
+                  strokeWidth="4"
+                />
+              </svg>
 
-                <p className="text-sm text-white/70 leading-relaxed">
-                  {s.desc}
-                </p>
-
+              {/* STEPS */}
+              {processSteps.map((s, i) => (
                 <div
+                  key={i}
                   style={{
-                    width: 90,
-                    height: 90,
-                    borderRadius: "50%",
-                    background: s.bg,
-                    margin: "18px auto 0",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 32,
-                    color: s.textColor || "#fff",
+                    position: "absolute",
+                    left: s.left,
+                    top: s.top,
+                    width: 220,
+                    textAlign: "center",
+                    zIndex: 2,
                   }}
                 >
-                  {s.icon}
+                  <h4
+                    style={{
+                      color: s.color,
+                      fontSize: 20,
+                      marginBottom: 10,
+                    }}
+                  >
+                    {s.title}
+                  </h4>
+
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    {s.desc}
+                  </p>
+
+                  <div
+                    style={{
+                      width: 90,
+                      height: 90,
+                      borderRadius: "50%",
+                      background: s.bg,
+                      margin: "18px auto 0",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: s.color,
+                      border: `2px solid ${s.color}`,
+                    }}
+                  >
+                    <s.icon size={32} />
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          {/* MOBILE & TABLET TIMELINE (Below xl) */}
+          <div className="xl:hidden relative max-w-xl mx-auto px-4 flex flex-col gap-10">
+            {/* Vertical connector line with self-drawing reveal */}
+            <motion.div
+              className="absolute left-[30px] top-8 bottom-8 w-1 bg-gradient-to-b from-[#00d4ff] via-[#ffa726] to-[#00ffc8] opacity-20 rounded-full origin-top"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+
+            {processSteps.map((s, i) => (
+              <motion.div
+                key={i}
+                className="flex gap-6 items-start relative z-10 group"
+                initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+              >
+                {/* Circle badge */}
+                <div
+                  className="w-16 h-16 rounded-full shrink-0 flex items-center justify-center border-2 relative"
+                  style={{
+                    background: s.bg,
+                    borderColor: s.color,
+                    boxShadow: `0 0 20px ${s.color}30`,
+                  }}
+                >
+                  {/* Slow pulsing beacon */}
+                  <div
+                    className="absolute inset-0 rounded-full opacity-25 animate-[ping_3s_ease-in-out_infinite]"
+                    style={{ backgroundColor: s.color }}
+                  />
+
+                  {/* Rotating HUD radar border */}
+                  <div
+                    className="absolute -inset-2 rounded-full border border-dashed opacity-35 animate-[spin_16s_linear_infinite]"
+                    style={{ borderColor: s.color }}
+                  />
+                  <s.icon size={26} style={{ color: s.color }} />
+                </div>
+
+                {/* Flowing border content block */}
+                <motion.div
+                  className="rounded-3xl flex-1 p-[1.5px] border border-white/5 hover:animate-border-flow hover:border-transparent transition-all duration-300"
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: `0 10px 30px ${s.color}20`,
+                    backgroundImage: `linear-gradient(90deg, ${s.color}, rgba(255,255,255,0.05), ${s.color})`,
+                    borderColor: "transparent",
+                  }}
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                  }}
+                >
+                  <div className="bg-[#0a0a0f] p-6 rounded-[23px] w-full h-full">
+                    <span
+                      className="text-[10px] font-bold tracking-widest uppercase block mb-1"
+                      style={{ color: s.color }}
+                    >
+                      Step 0{i + 1}
+                    </span>
+                    <h4 className="text-lg font-bold mb-2 text-white">
+                      {s.title}
+                    </h4>
+                    <p className="text-sm text-white/60 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>

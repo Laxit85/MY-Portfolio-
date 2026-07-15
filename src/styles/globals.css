@@ -187,6 +187,11 @@
   }
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html {
   font-size: var(--font-size);
   scroll-behavior: smooth;
@@ -250,4 +255,15 @@ body::before {
 
 .glow-gold {
   box-shadow: 0 0 20px rgba(255, 167, 38, 0.3);
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-border-flow {
+  background-size: 200% 200%;
+  animation: borderFlow 4s linear infinite;
 }
